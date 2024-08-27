@@ -1,6 +1,6 @@
 //index.js es el único que tiene contacto directo con html
 
-import home from '/views/Home.js';
+import { home } from './views/Home.js';
 import pageError from '/views/Error.js';
 // En este archivo definirás tus rutas e importarás los componentes que vas a renderizar.
 import { setRootEl, setRoutes, onURLChange } from './router.js';

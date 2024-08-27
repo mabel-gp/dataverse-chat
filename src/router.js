@@ -40,13 +40,11 @@ const renderView = (pathname, props={}) => {//chatind necesita prop,mandarid yre
     root.replaceChildren( ROUTES["/error"]());
   }else{
     root.replaceChildren( ROUTES[pathname]());
-
   }
   // render the correct view passing the value of props
   
 
   // add the view element to the DOM root element
-
 
 } 
 
@@ -67,8 +65,6 @@ export const onURLChange = (location) => { //Escucha cuando la URL cambia, revis
   // render the view with the pathname and object
   // > renderizar la view con el pathname y el objeto
   renderView(pathname, props);
-  
-
 }
 
   
