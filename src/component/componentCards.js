@@ -1,6 +1,8 @@
 export const renderCards = (data) => {
  
+  const prueba = document.createElement("main");
   const listaDeFlores = document.createElement("ul");
+  prueba.appendChild(listaDeFlores);
   
   data.forEach((dato) => {
     const li = document.createElement("li")
@@ -23,6 +25,6 @@ export const renderCards = (data) => {
     listaDeFlores.appendChild(li);
   });
   
-  return listaDeFlores;
+  return prueba;
   
 };
