@@ -1,27 +1,127 @@
 import { filterDataHabitat, filterDataTamaño, sortData, computeStats, computeStatsPorcentaje} from '../lib/dataFunctions.js';
 import data from '../data/dataset.js';
+import { renderHeader } from '../component/componentHeader.js';
+import { renderFilters } from '../component/componentFilters.js';
+import { renderStatistics } from '../component/componentStatistics.js';
 import { renderCards } from '../component/componentCards.js';
-console.log(renderCards(data))
+import { renderFooter } from '../component/componentFooter.js';
 
-export const home = (props) => {
-  const viewEl = document.createElement('div');
-  //Modificariamos el contenido del nuevo elemento con lo realizado en Dataverse
-/*   viewEl.innerHTML = `
-    <h1>DataVerse</h1>
-    ...
-  `; */
+const viewEl = document.createElement('div');
 
-  viewEl.appendChild(renderCards(data))
+export function home (props) {
+  viewEl.appendChild(renderHeader());
+  viewEl.appendChild(renderFilters());
+  viewEl.appendChild(renderStatistics());
+  viewEl.appendChild(renderCards(data));
+  viewEl.appendChild(renderFooter());
+  // const contenedorEstadistica = document.querySelector("#estadistica");
+  const contenedorHabitat = viewEl.querySelector("#flor-habitat");
+  contenedorHabitat.addEventListener("change", selectDeHabitat);
   return viewEl;
 }
 
+let currentData = data;
+
+const arregloDeFlores = document.querySelector("#root");
+arregloDeFlores.appendChild(renderCards(data));
+
+
+//Variables para mostrar el total de flores por cada filtro
+const contenedorEstadistica = document.querySelector("#estadistica");
+
+const computeStatsAcuatica = computeStats(data, "tipoDeHabitat", "Acuática");
+const computeStatsTerrestre = computeStats(data, "tipoDeHabitat", "Terrestre");
+const computeStatsEpifita = computeStats(data, "tipoDeHabitat", "Epífita");
+
+const computeStatsPequeña = computeStats(data, "tamañoDeFlor", "Pequeña");
+const computeStatsMediana = computeStats(data, "tamañoDeFlor", "Mediana");
+const computeStatsGrande = computeStats(data, "tamañoDeFlor", "Grande");
+
+//Variables para mostrar el porcentaje de flores por cada filtro
+let computeStatsAmerica = computeStatsPorcentaje(currentData, "continenteDeOrigen", "América");
+let computeStatsAfrica = computeStatsPorcentaje(currentData, "continenteDeOrigen", "África");
+let computeStatsAsia = computeStatsPorcentaje(currentData, "continenteDeOrigen", "Asia");
 
 
 
-/* // src/views/About.js
+//Función para tipo de Hábitat
+function selectDeHabitat(event){
+  const opcionDeHabitat= event.target.value;
 
-export function About(props) {
-    const viewEl = document.createElement('div');
-    viewEl.textContent = 'This is the About page.';
-    return viewEl;
-  } */
+  if (opcionDeHabitat === "acuáticas"){
+    currentData = filterDataHabitat(data, "tipoDeHabitat", "Acuática")
+    const items = renderCards(currentData);
+    arregloDeFlores.replaceChildren(items);
+    computeStatsAmerica = computeStatsPorcentaje(currentData, "continenteDeOrigen", "América");
+    // contenedorEstadistica.innerHTML = "El total de flores acuáticas es " + computeStatsAcuatica + " y el " + computeStatsAmerica + "% provienen de América";
+  }else if (opcionDeHabitat === "terrestres"){
+    currentData = filterDataHabitat(data, "tipoDeHabitat", "Terrestre")
+    const items = renderCards(currentData);
+    arregloDeFlores.replaceChildren(items);
+    computeStatsAfrica = computeStatsPorcentaje(currentData, "continenteDeOrigen", "África");
+    contenedorEstadistica.innerHTML = "El total de flores terrestres es " + computeStatsTerrestre + " y el " + computeStatsAfrica + "% provienen de África";
+  }else if(opcionDeHabitat === "epífitas"){
+    currentData = filterDataHabitat(data, "tipoDeHabitat", "Epífita")
+    const items = renderCards(currentData);
+    arregloDeFlores.replaceChildren(items);
+    computeStatsAsia = computeStatsPorcentaje(currentData, "continenteDeOrigen", "Asia");
+    contenedorEstadistica.innerHTML = "El total de flores epífitas es " + computeStatsEpifita + " y el " + computeStatsAsia + "% provienen de Asia";
+  }
+}
+
+// const contenedorHabitat = document.querySelector("#flor-habitat");
+// contenedorHabitat.addEventListener("change", selectDeHabitat);
+
+
+//Función para Tamaño
+function selectDeTamaño(event){
+  const opcionDeTamaño = event.target.value;
+
+  if (opcionDeTamaño === "pequeñas"){
+    currentData = filterDataTamaño(data, "tamañoDeFlor", "Pequeña");
+    const items = renderCards(currentData);
+    arregloDeFlores.replaceChildren(items);
+    computeStatsAmerica = computeStatsPorcentaje(currentData, "continenteDeOrigen", "América");
+    contenedorEstadistica.innerHTML = "El total de flores pequeñas es " + computeStatsPequeña + " y el " + computeStatsAmerica + "% provienen de América";
+  }else if (opcionDeTamaño === "medianas"){
+    currentData = filterDataTamaño(data, "tamañoDeFlor", "Mediana");
+    const items = renderCards(currentData);
+    arregloDeFlores.replaceChildren(items);
+    computeStatsAmerica = computeStatsPorcentaje(currentData, "continenteDeOrigen", "América");
+    contenedorEstadistica.innerHTML = "El total de flores medianas es " + computeStatsMediana + " y el " + computeStatsAmerica + "% provienen de América";
+  }else if(opcionDeTamaño === "grandes"){
+    currentData = filterDataTamaño(data, "tamañoDeFlor", "Grande");
+    const items = renderCards(currentData);
+    arregloDeFlores.replaceChildren(items);
+    computeStatsAsia = computeStatsPorcentaje(currentData, "continenteDeOrigen", "Asia");
+    contenedorEstadistica.innerHTML = "El total de flores grandes es " + computeStatsGrande + " y el " + computeStatsAsia + "% provienen de Asia";
+  }
+}
+
+// const contenedorTamaño = document.querySelector("#flor-tamaño");
+// contenedorTamaño.addEventListener("change", selectDeTamaño);
+
+
+//Función para Ordenar
+function selectDeOrdenar(event){
+  const opcionDeOrden = event.target.value;
+  const sortedData = sortData(currentData, opcionDeOrden);
+  const items = renderCards(sortedData);
+  arregloDeFlores.replaceChildren(items);
+}
+
+// const contenedorOrdenar = document.querySelector("#ordenar-flor");
+// contenedorOrdenar.addEventListener("change", selectDeOrdenar);
+
+
+//Función para el botón limpiar
+const dataOriginal = data;
+const botonRecargar = document.querySelector('[data-testid = "button-clear"]');
+// botonRecargar.addEventListener("click", () => {
+//   const limpiar = renderCards(dataOriginal) //volver a renderizar items con la data inicial
+//   contenedorEstadistica.innerHTML = "";
+//   contenedorHabitat.value = "elegir-por-habitat";
+//   contenedorTamaño.value = "elegir-por-tamaño";
+//   contenedorOrdenar.value = "elegir-por-orden";
+//   arregloDeFlores.replaceChildren(limpiar);
+// });

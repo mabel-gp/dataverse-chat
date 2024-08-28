@@ -1,6 +1,7 @@
 export const filterDataHabitat = (data, filterBy, value) => {
+  console.log(data, filterBy, value);
   const filtradasPorHabitat = data.filter((florHabitat) => {
-    return florHabitat.data[filterBy] === value;
+    return florHabitat.facts[filterBy] === value;
   });
   return filtradasPorHabitat;
 };
