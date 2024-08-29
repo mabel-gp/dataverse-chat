@@ -29,6 +29,7 @@ export const renderFilters = () => {
 
       <div>
         <button data-testid="button-clear">Recargar</button>
+        <button>Chat grupal</button>
       </div>
       `
       

@@ -20,8 +20,11 @@ export const renderCards = (data) => {
           <dd itemprop="tipoDeHabitat">Hábitat: ${dato.facts.tipoDeHabitat}</dd>
           <dd itemprop="tamañoDeFlor">Tamaño: ${dato.facts.tamañoDeFlor}</dd>
         <dl>
+        <div class = "contenedor-botones">
+          <button class = "button-mas">Ver más</button>
+          <button class = "button-chat">Chat</button>
+        </div>
         `
-  
     listaDeFlores.appendChild(li);
   });
   

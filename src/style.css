@@ -85,6 +85,38 @@ button:active {
     transform: scale(0.9);
 }
 
+.contenedor-botones{
+    padding-top: 2rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+    column-gap: 2.3rem;
+}
+
+.button-mas {
+    background-color: #D4E3CC;
+    border-radius: 2rem;
+    padding: 0.5rem 2rem 0.8rem 2rem;
+    font-size: 1.4rem;
+    border: none;
+    font-family: "Aref Ruqaa Ink", serif;
+    box-shadow: 0 0.4rem 0 0 #BAC7B3;
+    color: #333333;
+}
+
+.button-chat {
+    background-color: #DBCCE3;
+    border-radius: 2rem;
+    padding: 0.5rem 2rem 0.8rem 2rem;
+    font-size: 1.4rem;
+    border: none;
+    font-family: "Aref Ruqaa Ink", serif;
+    box-shadow: 0 0.4rem 0 0 #DBB4E3;
+    color: #333333;
+}
+
 main{
     background-color: #F6F2F8;
     padding: 2rem 4rem 2rem 4rem;
@@ -98,7 +130,7 @@ main{
     display:flex;
     justify-content: center;
     align-items: center;
-    background-color: #e9dfed !important;
+    background-color: #e9dfed;
     width: 100%;
 }
 
@@ -206,6 +238,17 @@ footer{
         font-family: "Aref Ruqaa Ink", serif;
         box-shadow: 0 0.4rem 0 0 #DBB4E3;
         color: #333333;
+    }
+
+    .contenedor-botones{
+        background-color: #F1E4E5;
+        padding-top: 2rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        row-gap: 1.5rem;
+        column-gap: 2.3rem;
     }
 
     main div {

@@ -1,5 +1,4 @@
 export const filterDataHabitat = (data, filterBy, value) => {
-  console.log(data, filterBy, value);
   const filtradasPorHabitat = data.filter((florHabitat) => {
     return florHabitat.facts[filterBy] === value;
   });
@@ -8,7 +7,7 @@ export const filterDataHabitat = (data, filterBy, value) => {
   
 export const filterDataTamaño = (data, filterBy, value) => {
   const filtradasPorTamaño = data.filter((florTamaño) => {
-    return florTamaño.data[filterBy] === value;
+    return florTamaño.facts[filterBy] === value;
   });
   return filtradasPorTamaño;
 };
