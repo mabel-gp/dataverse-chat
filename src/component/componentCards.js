@@ -1,8 +1,8 @@
 export const renderCards = (data) => {
  
-  const prueba = document.createElement("main");
+  const sectionMain = document.createElement("main");
   const listaDeFlores = document.createElement("ul");
-  prueba.appendChild(listaDeFlores);
+  sectionMain.appendChild(listaDeFlores);
   
   data.forEach((dato) => {
     const li = document.createElement("li")
@@ -20,14 +20,25 @@ export const renderCards = (data) => {
           <dd itemprop="tipoDeHabitat">Hábitat: ${dato.facts.tipoDeHabitat}</dd>
           <dd itemprop="tamañoDeFlor">Tamaño: ${dato.facts.tamañoDeFlor}</dd>
         <dl>
+
         <div class = "contenedor-botones">
-          <button class = "button-mas">Ver más</button>
-          <button class = "button-chat">Chat</button>
+          <button class = "button-chatear">Chatear</button>
         </div>
         `
+
     listaDeFlores.appendChild(li);
   });
   
-  return prueba;
+  const sectionApi = document.createElement("div");
+  sectionApi.classList.add("section-api");
+  const sectionApiButton = document.createElement("button");
+  sectionApiButton.className = "button-api";
+  const iconoApi = document.createElement("img");
+  iconoApi.src = "assets/images/icono-api.svg";
+  sectionApiButton.appendChild(iconoApi);
+  sectionApi.appendChild(sectionApiButton); 
+  sectionMain.appendChild(sectionApi); 
+
+  return sectionMain;
   
 };

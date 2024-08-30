@@ -1,7 +1,8 @@
 //index.js es el único que tiene contacto directo con html
 
 import { home } from './views/Home.js';
-import pageError from '/views/Error.js';
+import pageError from './views/Error.js';
+import pageApiKey from './views/Apikey.js';
 // En este archivo definirás tus rutas e importarás los componentes que vas a renderizar.
 import { setRootEl, setRoutes, onURLChange } from './router.js';
 
@@ -9,6 +10,7 @@ import { setRootEl, setRoutes, onURLChange } from './router.js';
 const routes = {
   '/': home,
   '/error': pageError,
+  '/apiKey': pageApiKey,
 };
 
 // Assign the routes

@@ -15,6 +15,7 @@ export function home (props) {
   viewEl.appendChild(renderCards(data));
   viewEl.appendChild(renderFooter());
 
+
   return viewEl;
 }
 
