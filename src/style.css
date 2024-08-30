@@ -1,0 +1,422 @@
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+header{
+    background-color: #DBCCE3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+header img {
+    width: 60%;
+}
+
+header div{
+    background-color: #D9D9D9;
+    position: absolute;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+    height: 10rem;
+}
+
+header div h1 {
+    color: #786E3E;
+    position: relative;
+    font-size: 9rem;
+    font-family:"Style Script";
+    opacity: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1.8rem;
+}
+
+aside {
+    background-color: #D4E3CC;
+    padding: 2rem 4rem 2rem 4rem;
+    font-size: 2.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    font-family:"Style Script";
+    color: #333333;
+}
+
+select{
+    display: flex;
+    border-radius: 2rem;
+    border: none;
+    background-color: #F6F9F5;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+button {
+    background-color: #DBCCE3;
+    border-radius: 2rem;
+    padding: 0 2rem 0.5rem 2rem;
+    font-size: 1.8rem;
+    border: none;
+    font-family: "Aref Ruqaa Ink", serif;
+    box-shadow: 0 0.4rem 0 0 #DBB4E3;
+    color: #333333;
+}
+
+button:focus{
+    transform: scale(0.95);
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+.contenedor-botones{
+    padding-top: 2rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-chatear {
+    background-color: #D4E3CC;
+    border-radius: 2rem;
+    padding: 0.5rem 2rem 0.8rem 2rem;
+    font-size: 1.4rem;
+    border: none;
+    font-family: "Aref Ruqaa Ink", serif;
+    box-shadow: 0 0.4rem 0 0 #BAC7B3;
+    color: #333333;
+}
+
+.section-api {
+    display: flex;
+    justify-content: end;
+    width: 95%;
+    position: fixed;
+}
+
+.button-api {
+    width: 10rem;
+    height: 8rem;
+}
+
+main {
+    background-color: #F6F2F8;
+    padding: 2rem 4rem 2rem 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.6rem;
+    font-family: "Alegreya Sans", sans-serif;
+}
+
+.prueba {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e9dfed;
+    width: 100%;
+}
+
+#estadistica {
+    font-size: 2rem;
+    background-color: transparent;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;  
+}
+
+.caracteristicas {
+    display: flex;
+    width: 25%;
+    margin: 2rem;
+    padding: 4rem 2rem 4rem 2rem;
+    background-color: #F1E4E5;
+    color: #333333;
+    border-radius: 2rem;
+   
+}
+
+dd[itemprop="name"] {
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 1.5rem;
+}
+
+.caracteristicas img {
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin: auto;
+}
+
+footer {
+    background-color: #DBCCE3;
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-family: "Aref Ruqaa Ink", serif;
+    color: #333333;
+}
+
+.fa-user-lock {
+    color: #787878;
+}
+
+
+@media (max-width: 915px) {
+
+    header div{
+        background-color: #D9D9D9;
+        position: absolute;
+        opacity: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 13rem;
+        height: 5rem;
+    }
+
+    header div h1 {
+        color: #786E3E;
+        position: relative;
+        font-size: 5rem;
+        font-family:"Style Script";
+        opacity: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1rem;
+    }
+
+    aside {
+        background-color: #D4E3CC;
+        padding: 2rem 4rem 2rem 4rem;
+        font-size: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        font-family:"Style Script";
+        color: #333333;
+    }
+
+    select {
+        display: flex;
+        border-radius: 2rem;
+        border: none;
+        background-color: #F6F9F5;
+        padding: 0.3rem 1rem 0.3rem 1rem;
+        font-size: 1.2rem;
+    }
+
+    button {
+        background-color: #DBCCE3;
+        border-radius: 2rem;
+        padding: 0 1rem 0.2rem 1rem;
+        font-size: 1.4rem;
+        border: none;
+        font-family: "Aref Ruqaa Ink", serif;
+        box-shadow: 0 0.4rem 0 0 #DBB4E3;
+        color: #333333;
+    }
+
+    .contenedor-botones{
+        background-color: #F1E4E5;
+        padding-top: 2rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main div {
+        background-color: #F6F2F8;
+        padding: 1rem 2rem 2rem 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1.2rem;
+        font-family: "Alegreya Sans", sans-serif;
+    }
+
+    .contenedor-estadistica{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #e9dfed;
+        width: 100%;
+    }
+    
+    #estadistica{
+        font-size: 1.2rem;
+        background-color: transparent;
+    }
+
+    .caracteristicas {
+        display: flex;
+        width: 30%;
+        margin: 1rem;
+        padding: 2rem 2rem 2rem 2rem;
+        background-color: #F1E4E5;
+        color: #333333;
+        border-radius: 2rem;
+    }
+
+    .section-api {
+        display: flex;
+        justify-content: start;
+        margin-left: 83%;
+        position: fixed;
+        padding: 0;
+        border-radius: 2rem;
+
+    }
+    
+    .button-api {
+        width: 8rem;
+        height: 7rem;
+    }
+
+    footer {
+        background-color: #DBCCE3;
+        width: 100%;
+        height: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3rem;
+        font-family: "Aref Ruqaa Ink", serif;
+        color: #333333;
+    }
+
+}
+
+@media (min-width: 300px) and (max-width: 600px) {
+
+    header div h1 {
+        color: #786E3E;
+        position: relative;
+        font-size: 3rem;
+        font-family:"Style Script";
+        opacity: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1rem;
+    }
+
+    aside {
+        background-color: #D4E3CC;
+        padding: 1rem 2rem 1rem 2rem;
+        font-size: 1.4rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        font-family:"Style Script";
+        color: #333333;
+    }
+
+    select {
+        display: flex;
+        border-radius: 1.5rem;
+        border: none;
+        background-color: #F6F9F5;
+        padding: 0.1rem 0.2rem 0.1rem 0.2rem;
+        font-size: 1rem;
+    }
+
+    button {
+        background-color: #DBCCE3;
+        border-radius: 2rem;
+        padding: 0 0.5rem 0.3rem 0.5rem;
+        font-size: 1rem;
+        border: none;
+        font-family: "Aref Ruqaa Ink", serif;
+        box-shadow: 0 0.4rem 0 0 #DBB4E3;
+        color: #333333;
+    }
+
+    .contenedor-estadistica{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #e9dfed;
+        width: 100%;   
+    }
+    
+    #estadistica{
+        font-size: 1rem;
+        background-color: transparent;
+    }
+
+    main div {
+        background-color: #F6F2F8;
+        padding: 1rem 0.2rem 1rem 0.2rem;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1rem;
+        font-family: "Alegreya Sans", sans-serif;
+    }
+
+    .caracteristicas {
+        display: flex;
+        width: 50%;
+        margin: 1rem;
+        padding: 2rem 2rem 2rem 2rem;
+        background-color: #F1E4E5;
+        color: #333333;
+        border-radius: 2rem;
+    }
+
+    .section-api {
+        display: flex;
+        justify-content: start;
+        margin-left: 70%;
+        position: fixed;
+        padding: 0;
+        border-radius: 2rem;
+
+    }
+    
+    .button-api {
+        width: 8rem;
+        height: 7rem;
+    }
+
+    footer {
+        background-color: #DBCCE3;
+        width: 100%;
+        height: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-family: "Aref Ruqaa Ink", serif;
+        color: #333333;
+    }
+
+
+
+
+}
