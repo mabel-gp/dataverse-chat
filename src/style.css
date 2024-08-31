@@ -7,6 +7,7 @@
 
 html{
     font-size: 62.5%;
+    background-color: #F6F2F8
 }
 
 header{
@@ -184,11 +185,42 @@ footer {
     color: #787878;
 }
 
+/* Estos son los estilos de pageApi */
+
+.section-page-api {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    gap: 2rem;
+    background-color: #F6F2F8;
+}
 
 .titulo-api {
-    color: #DBCCE3;
-    font-size: 2.4rem;
+    color: #786E3E;
+    font-size: 4rem;
 }
+
+.mensaje-api{
+    color: #333333;
+    font-size: 200%;
+    align-items: center;
+}
+
+.input-api{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1rem;
+    outline: none;
+    border-color: #c9c9c9;
+}
+
+.buttton-guardar-api{
+    margin-top: 2rem;
+}
+
+
 
 
 @media (max-width: 915px) {
