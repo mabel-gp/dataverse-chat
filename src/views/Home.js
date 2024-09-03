@@ -6,22 +6,15 @@ import { renderStatistics } from '../component/componentStatistics.js';
 import { renderCards } from '../component/componentCards.js';
 import { renderFooter } from '../component/componentFooter.js';
 
-const viewEl = document.createElement('div');
+let currentData = data;
 
 export function home (props) {
+  const viewEl = document.createElement('div');
   viewEl.appendChild(renderHeader());
   viewEl.appendChild(renderFilters());
   viewEl.appendChild(renderStatistics());
   viewEl.appendChild(renderCards(data));
   viewEl.appendChild(renderFooter());
-
-
-  return viewEl;
-}
-
-let currentData = data;
-
-window.addEventListener("load", () => {
 
   const arregloDeFlores = viewEl.querySelector("main");
 
@@ -109,10 +102,9 @@ window.addEventListener("load", () => {
   }
 
   //Función para el botón limpiar
-  const dataOriginal = data;
-  const botonRecargar = document.querySelector('[data-testid = "button-clear"]');
+  const botonRecargar = viewEl.querySelector('[data-testid = "button-clear"]');
   botonRecargar.addEventListener("click", () => {
-    const limpiar = renderCards(dataOriginal) //volver a renderizar items con la data inicial
+    const limpiar = renderCards(data) //volver a renderizar items con la data inicial
     contenedorEstadistica.innerHTML = "";
     contenedorHabitat.value = "elegir-por-habitat";
     contenedorTamaño.value = "elegir-por-tamaño";
@@ -120,5 +112,7 @@ window.addEventListener("load", () => {
     arregloDeFlores.replaceChildren(limpiar);
   });
 
-});
+  return viewEl;
+}
+
 
