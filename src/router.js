@@ -42,7 +42,6 @@ const renderView = (pathname, props={}) => {//chatind necesita prop,mandarid yre
     root.replaceChildren( ROUTES[pathname]());
   }
   // render the correct view passing the value of props
-  
 
   // add the view element to the DOM root element
 
@@ -71,12 +70,23 @@ export const onURLChange = (location) => { //Escucha cuando la URL cambia, revis
 
 const queryStringToObject = (queryString) => { //para chat individual ejemplo chat?id=1
   // convert query string to URLSearchParams
+  const params = new URLSearchParams(queryString);
+  
   // convert URLSearchParams to an object
+  const paramsObject = Object.fromEntries(params);
+
   // return the object
+  return paramsObject;
 }
 
 export const navigateTo = (pathname, props={}) => {
+  const queryString = Object.keys(props).length
+    ? `?${new URLSearchParams(props)}`
+    : "";
+  const url = `${window.location.origin}${pathname}${queryString}`;
   // update window history with pushState
+  window.history.pushState(props, "", url);
   // render the view with the pathname and props
+  renderView(pathname, props);
 }
 
