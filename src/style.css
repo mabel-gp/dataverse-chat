@@ -24,7 +24,7 @@ header img {
     width: 60%;
 }
 
-header div{
+header div {
     background-color: #D9D9D9;
     position: absolute;
     opacity: 0.8;
@@ -59,7 +59,7 @@ aside {
     color: #333333;
 }
 
-select{
+select {
     display: flex;
     border-radius: 2rem;
     border: none;
@@ -78,7 +78,7 @@ button {
     color: #333333;
 }
 
-button:focus{
+button:focus {
     transform: scale(0.95);
 }
 
@@ -86,7 +86,7 @@ button:active {
     transform: scale(0.9);
 }
 
-.contenedor-botones{
+.contenedor-botones {
     padding-top: 2rem;
     display:flex;
     justify-content: center;
@@ -107,13 +107,17 @@ button:active {
 .section-api {
     display: flex;
     justify-content: end;
-    width: 95%;
+    width: 92.5%;
     position: fixed;
 }
 
 .button-api {
-    width: 10rem;
-    height: 8rem;
+    width: 8rem;
+    height: 6rem;
+}
+
+.button-api img {
+    padding-top: 1rem;
 }
 
 main {
@@ -220,6 +224,80 @@ footer {
     margin-top: 2rem;
 }
 
+/* estos son los estilos para la vista de chat individual*/
+
+.contenedor-vista-chat-individual {   
+    display: flex;
+    column-gap: 2rem;
+    height: 100vh;
+}
+
+.chat-individual {
+    width: 50%;
+    height: 100vh;
+}
+
+.mensaje-chat {  
+   height: 85vh; 
+}
+
+.mensaje-de-usuario {
+  padding: 1rem 3rem 1rem 3rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.mensaje-de-usuario input {
+    border-radius: 1rem;
+    padding: 1rem;
+    outline: none;
+    border-color: #c9c9c9;
+    width: 90%;
+} 
+
+.mensaje-de-usuario button {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mensaje-de-usuario img {
+    max-height: 200%;
+    max-width: 200%;
+    padding-top: 0.8rem;
+
+} 
+
+.tarjeta-chat-individual {
+    width: 50%;
+    background-color: #DBCCE3;
+    padding: 3rem 8rem 3rem 8rem;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.tarjeta-chat-individual h1 {
+    font-size: 3rem;
+    padding-top: 5rem;
+    color: #786E3E;
+    
+}
+
+.tarjeta-chat-individual img {
+    width: 30%;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    
+}
+
+.tarjeta-chat-individual p {
+    font-size: 1.4rem;
+    text-align: justify;
+    color: #333333;
+} 
 
 
 
@@ -331,8 +409,8 @@ footer {
     }
     
     .button-api {
-        width: 8rem;
-        height: 7rem;
+        width: 7rem;
+        height: 6rem;
     }
 
     footer {
@@ -347,6 +425,36 @@ footer {
         color: #333333;
     }
 
+ /*estos son los estilos de la vista del chat individual*/
+    
+    .contenedor-vista-chat-individual {   
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 2rem;
+        height: 100vh;
+    }
+
+    .tarjeta-chat-individual {
+        width: 100%;
+        background-color: #DBCCE3;
+        padding: 3rem 8rem 3rem 8rem;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+
+    .chat-individual {
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .mensaje-de-usuario button {
+        width: 5.5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media (min-width: 300px) and (max-width: 600px) {
@@ -438,8 +546,12 @@ footer {
     }
     
     .button-api {
-        width: 8rem;
-        height: 7rem;
+        width: 7rem;
+        height: 6rem;
+    }
+
+    .button-api img {
+        width: 80%;
     }
 
     footer {
@@ -453,8 +565,22 @@ footer {
         font-family: "Aref Ruqaa Ink", serif;
         color: #333333;
     }
+}
 
+@media (min-width: 915px) and (max-width: 1090px) {
 
+    .mensaje-de-usuario button {
+        width: 15%;
+        height: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
+    .mensaje-de-usuario img {
+        max-height: 50%;
+        max-width: 200%;
+        padding-top: 0.8rem;
+    }
 
 }

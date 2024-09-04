@@ -26,7 +26,7 @@ export const setRoutes = (routes) => {
   return ROUTES = routes;
 }
 
-const renderView = (pathname, props={}) => {//chatind necesita prop,mandarid yrecibir con querysttringtoobject, props otra forma de llamr params
+const renderView = (pathname, props = {}) => {//chatind necesita prop,mandarid yrecibir con querysttringtoobject, props otra forma de llamr params
   
   // clear the root element
   const root =  rootElement;
@@ -39,7 +39,7 @@ const renderView = (pathname, props={}) => {//chatind necesita prop,mandarid yre
   if(ROUTES[pathname] === undefined){
     root.replaceChildren( ROUTES["/error"]());
   }else{
-    root.replaceChildren( ROUTES[pathname]());
+    root.replaceChildren( ROUTES[pathname](props));
   }
   // render the correct view passing the value of props
 
@@ -65,8 +65,6 @@ export const onURLChange = (location) => { //Escucha cuando la URL cambia, revis
   // > renderizar la view con el pathname y el objeto
   renderView(pathname, props);
 }
-
-  
 
 const queryStringToObject = (queryString) => { //para chat individual ejemplo chat?id=1
   // convert query string to URLSearchParams
