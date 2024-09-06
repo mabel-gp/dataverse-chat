@@ -1,12 +1,12 @@
 import data from '../data/dataset.js'
+import {communicateWithOpenAI}  from '../lib/openAIApi.js';
 
 export const renderChatIndividual = (props) => {
   const itemFlor = data.find(item => item.id === props.id);
   
   const contenedorChatIndividual = document.createElement("section");
   contenedorChatIndividual.className = "section-chat-individual";
-
-  //data.forEach((dato) => {
+  
   const divChatIndividual = document.createElement("div")
   divChatIndividual.className = "contenedor-vista-chat-individual"
 
@@ -16,22 +16,32 @@ export const renderChatIndividual = (props) => {
             <div class = "mensaje-chat">
             </div>
             <div class = "mensaje-de-usuario">
-                <input type="text" placeholder="Escribe aquí"/>
+                <input id="chat-input" type="text" placeholder="Escribe aquí"/>
                 <button class = "boton-enviar-chat-individual">
                     <img src = "assets/images/enviar.png">
                 </button>
             </div>
         </div>
-
+       
         <div class = "tarjeta-chat-individual">
             <h1>${itemFlor.name}</h1>
             <img src="${itemFlor.imageUrl}"/>
             <p>${itemFlor.description}</p>    
         </div>
         `
+  const chatMensajes = divChatIndividual.querySelector(".mensaje-chat");
+
+
+  const chatInput = divChatIndividual.querySelector('#chat-input');  
+
+  const chatButton = divChatIndividual.querySelector('.boton-enviar-chat-individual');
+  chatButton.addEventListener('click', () =>{
+    const respuesta = communicateWithOpenAI(chatInput.value);
+    chatMensajes.innerHTML =  respuesta.choices[0].message.content;
+    // console.log(respuesta.choices[0].message.content);
+  });
 
   contenedorChatIndividual.appendChild(divChatIndividual);
-  //});
         
   return contenedorChatIndividual;
           
