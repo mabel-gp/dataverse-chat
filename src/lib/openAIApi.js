@@ -6,7 +6,7 @@ const recibeApiKey = getApiKey();
 export const communicateWithOpenAI = (messages) => {
   //Aquí es donde debes implementar la petición con fetch o axios
 
-  const promesaOpenAI = fetch('https://api.openai.com/v1/chat/completions', {
+  return fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -24,8 +24,8 @@ export const communicateWithOpenAI = (messages) => {
     })
   }) 
     .then(promesaOpenAI => {return promesaOpenAI.json()})
-    .catch (error => {console.error ('Error de API:' ,error)});
+    .catch (error => {console.error ('Error de API:' ,error)})
 
-  console.log(promesaOpenAI);
+  // console.log(promesaOpenAI);
 };
 
