@@ -36,8 +36,10 @@ export const renderChatIndividual = (props) => {
 
   const chatButton = divChatIndividual.querySelector('.boton-enviar-chat-individual');
   chatButton.addEventListener('click', () =>{
-    const respuesta = communicateWithOpenAI(chatInput.value);
-    chatMensajes.innerHTML =  respuesta.choices[0].message.content;
+    communicateWithOpenAI(chatInput.value).then(respuesta =>{
+      chatMensajes.innerHTML =  respuesta.choices[0].message.content;
+    }).catch();
+    
     // console.log(respuesta.choices[0].message.content);
   });
 
