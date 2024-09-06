@@ -1,8 +1,7 @@
 import { renderChatIndividual } from '../component/componentChatIndividual.js';
 
-const viewEl = document.createElement('div');
-
 function pageChatIndividual(props) {
+  const viewEl = document.createElement('div');
   viewEl.appendChild(renderChatIndividual(props));
   return viewEl;
 }
