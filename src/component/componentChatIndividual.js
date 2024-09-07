@@ -14,6 +14,22 @@ export const renderChatIndividual = (props) => {
         `
         <div class = "chat-individual">
             <div class = "mensaje-chat">
+              <ul class = "lista-de-mensajes">
+                <li class = "mensaje-bot">
+                  <span>florcita: </span>
+                  <p>Esta es la flor</p>
+                </li>
+
+                <li class = "mensaje-usuario">
+                  <p>Esta es la respuesta</p>
+                  <span>usuario: </span>
+                </li>
+
+                <li class = "mensaje-usuario">
+                  <p>otra respuesta</p>
+                  <span>usuario: </span>
+                </li>
+              </ul>
             </div>
             <div class = "mensaje-de-usuario">
                 <input id="chat-input" type="text" placeholder="Escribe aquí"/>
@@ -29,19 +45,48 @@ export const renderChatIndividual = (props) => {
             <p>${itemFlor.description}</p>    
         </div>
         `
+  
   const chatMensajes = divChatIndividual.querySelector(".mensaje-chat");
-
 
   const chatInput = divChatIndividual.querySelector('#chat-input');  
 
   const chatButton = divChatIndividual.querySelector('.boton-enviar-chat-individual');
   chatButton.addEventListener('click', () =>{
-    communicateWithOpenAI(chatInput.value).then(respuesta =>{
-      chatMensajes.innerHTML =  respuesta.choices[0].message.content;
-    }).catch();
+    const textoInput = chatInput.value.trim();
+
+    if (chatInput !== ""){
+      communicateWithOpenAI(textoInput).then(respuesta =>{
+        chatMensajes.innerHTML = respuesta.choices[0].message.content;
+        chatInput.value = " ";
+      }).catch();
+
+      
+    }
+    prueba(textoInput, "user")
     
-    // console.log(respuesta.choices[0].message.content);
+  /*     const mensajesPrueba = communicateWithOpenAI(messages)
+    .push(textoBot)
+
+    prueba(textoBot, "bot")
+ */
   });
+  
+  const cloneTemplate = divChatIndividual.querySelector(".lista-de-mensajes")
+  function prueba(text, sender) {
+    //en cloneHTML, la ul se convierten en una copia del ul original --- cloneNode(true), para que clone al nodo con todos sus hijos.
+    const cloneHTML = cloneTemplate.cloneNode(true);
+    //estás li ya no son las originales sino son las copias del cloneHTML
+    const nuevoMensaje = cloneHTML.querySelector("li");
+
+    //Llamamos con querySelector a los hijos de la copia li
+    const mensajeFlorUsuario = nuevoMensaje.querySelector("p");
+    const florUsuario = nuevoMensaje.querySelector("span");
+
+    florUsuario.textContent = sender === "bot" ? "florcita" : "usuario";
+    mensajeFlorUsuario.textContent = text;
+
+    cloneTemplate.appendChild(nuevoMensaje);
+  }
 
   contenedorChatIndividual.appendChild(divChatIndividual);
         

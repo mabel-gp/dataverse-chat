@@ -130,7 +130,7 @@ main {
 }
 
 .prueba {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: #e9dfed;
@@ -234,11 +234,7 @@ footer {
 
 .chat-individual {
     width: 50%;
-    height: 100vh;
-}
-
-.mensaje-chat {  
-   height: 85vh; 
+    height: 100vh;  
 }
 
 .mensaje-de-usuario {
@@ -266,7 +262,6 @@ footer {
     max-height: 200%;
     max-width: 200%;
     padding-top: 0.8rem;
-
 } 
 
 .tarjeta-chat-individual {
@@ -299,6 +294,55 @@ footer {
     color: #333333;
 } 
 
+/*Estos son los estilos del chat individual*/
+.mensaje-chat {  
+    height: 85dvh; 
+    margin: 3rem 2rem 0 2rem;
+ }
+
+ .lista-de-mensajes {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    font-size: 1.4rem;
+    list-style: none;
+    font-family: "Aref Ruqaa Ink", serif;
+    color: #333333;
+ }
+
+.mensaje-bot {
+    align-self: flex-start;
+    display: flex;
+ }
+
+.mensaje-usuario {
+    align-self: flex-end;
+    display: flex;
+ }
+
+.mensaje-bot p {
+    background-color: #D4E3CC;
+    box-shadow: 0 0 0.5rem 0.1rem rgb(190, 190, 190);
+    border-radius: 1rem;
+    padding: 0.6rem 1rem 1rem 1rem;
+    outline: none;
+}
+
+.mensaje-bot span {
+    padding: 0.6rem 1rem 1rem 1rem;
+}
+
+.mensaje-usuario p {
+    background-color: #F1E4E5;
+    box-shadow: 0 0 0.5rem 0.1rem rgb(190, 190, 190);
+    border-radius: 1rem;
+    padding: 0.6rem 1rem 1rem 1rem;
+    outline: none;
+}
+
+.mensaje-usuario span {
+    padding: 0.6rem 1rem 1rem 1rem;
+}
 
 
 @media (max-width: 915px) {
