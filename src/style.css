@@ -338,11 +338,32 @@ footer {
     border-radius: 1rem;
     padding: 0.6rem 1rem 1rem 1rem;
     outline: none;
-}
+} 
 
 .mensaje-usuario span {
     padding: 0.6rem 1rem 1rem 1rem;
 }
+
+#span-chat-bot {
+    > img {
+        width: 100%;
+    }
+}
+
+#span-chat-bot {
+    width: 6rem;
+    height: 4rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+ }
+
+ #mensaje-chat-bot {
+    padding: 1rem 1rem 1rem 1rem;
+ }
+
+ #mensaje-chat-usuario {
+    padding: 0.9rem 1rem 1rem 1rem;
+ }
 
 
 @media (max-width: 915px) {

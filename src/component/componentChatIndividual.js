@@ -1,36 +1,32 @@
 import data from '../data/dataset.js'
 import {communicateWithOpenAI}  from '../lib/openAIApi.js';
 
-export const renderChatIndividual = (props) => {
-  const itemFlor = data.find(item => item.id === props.id);
+export const renderChatIndividual= (props) => {
+  const itemFlor= data.find(item => item.id === props.id);
   
-  const contenedorChatIndividual = document.createElement("section");
-  contenedorChatIndividual.className = "section-chat-individual";
+  const contenedorChatIndividual= document.createElement("section");
+  contenedorChatIndividual.className= "section-chat-individual";
   
-  const divChatIndividual = document.createElement("div")
-  divChatIndividual.className = "contenedor-vista-chat-individual"
+  const divChatIndividual= document.createElement("div")
+  divChatIndividual.className= "contenedor-vista-chat-individual"
 
-  divChatIndividual.innerHTML =  
+  divChatIndividual.innerHTML=  
         `
-        <div class = "chat-individual">
-            <div class = "mensaje-chat">
-              <ul class = "lista-de-mensajes">
-                <li class = "mensaje-bot">
-                  <span>florcita: </span>
-                  <p>Esta es la flor</p>
+        <div class= "chat-individual">
+            <div class= "mensaje-chat">
+              <ul class= "lista-de-mensajes">
+                <li class= "mensaje-bot">
+                  <span id= "span-chat-bot" ><img src="${itemFlor.imageUrl}"/></span>
+                  <p id= "mensaje-chat-bot" >Esta es la flor</p>
                 </li>
 
-                <li class = "mensaje-usuario">
-                  <p>Esta es la respuesta</p>
-                  <span>usuario: </span>
-                </li>
-
-                <li class = "mensaje-usuario">
-                  <p>otra respuesta</p>
-                  <span>usuario: </span>
+                <li class= "mensaje-usuario">
+                  <p id="mensaje-chat-usuario" >Esta es la respuesta</p>
+                  <span id= "span-chat-bot">usuario: </span>
                 </li>
               </ul>
             </div>
+
             <div class = "mensaje-de-usuario">
                 <input id="chat-input" type="text" placeholder="Escribe aquí"/>
                 <button class = "boton-enviar-chat-individual">
@@ -46,29 +42,23 @@ export const renderChatIndividual = (props) => {
         </div>
         `
   
-  const chatMensajes = divChatIndividual.querySelector(".mensaje-chat");
-
+  const chatMensajes = divChatIndividual.querySelector('.mensaje-chat');
   const chatInput = divChatIndividual.querySelector('#chat-input');  
-
   const chatButton = divChatIndividual.querySelector('.boton-enviar-chat-individual');
+
   chatButton.addEventListener('click', () =>{
     const textoInput = chatInput.value.trim();
 
     if (chatInput !== ""){
-      communicateWithOpenAI(textoInput).then(respuesta =>{
-        chatMensajes.innerHTML = respuesta.choices[0].message.content;
-        chatInput.value = " ";
-      }).catch();
+      communicateWithOpenAI(textoInput)
+        .then(respuesta =>{
+          const textBot = respuesta.choices[0].message.content;
+          chatInput.value = " ";
+          prueba(textBot, "bot")
+        }).catch();
 
-      
     }
     prueba(textoInput, "user")
-    
-  /*     const mensajesPrueba = communicateWithOpenAI(messages)
-    .push(textoBot)
-
-    prueba(textoBot, "bot")
- */
   });
   
   const cloneTemplate = divChatIndividual.querySelector(".lista-de-mensajes")
@@ -79,13 +69,15 @@ export const renderChatIndividual = (props) => {
     const nuevoMensaje = cloneHTML.querySelector("li");
 
     //Llamamos con querySelector a los hijos de la copia li
-    const mensajeFlorUsuario = nuevoMensaje.querySelector("p");
-    const florUsuario = nuevoMensaje.querySelector("span");
+    const mensajeBot= nuevoMensaje.querySelector("p");
+    const spanBot= nuevoMensaje.querySelector("span");
+    /* const mensajeUsuario= nuevoMensaje.querySelector("#mensaje-chat-usuario");
+    const spanUsuario= nuevoMensaje.querySelector("#span-chat-usuario");
+     */
+    spanBot.textContent = sender;
+    mensajeBot.textContent = text;
 
-    florUsuario.textContent = sender === "bot" ? "florcita" : "usuario";
-    mensajeFlorUsuario.textContent = text;
-
-    cloneTemplate.appendChild(nuevoMensaje);
+    cloneTemplate.appendChild(nuevoMensaje); 
   }
 
   contenedorChatIndividual.appendChild(divChatIndividual);
