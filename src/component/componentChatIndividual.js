@@ -22,7 +22,7 @@ export const renderChatIndividual= (props) => {
 
                 <li class= "mensaje-usuario">
                   <p id="mensaje-chat-usuario" >Esta es la respuesta</p>
-                  <span id= "span-chat-bot">usuario: </span>
+                  <span id= "span-chat-usuario">usuario: </span>
                 </li>
               </ul>
             </div>
@@ -42,11 +42,11 @@ export const renderChatIndividual= (props) => {
         </div>
         `
   
-  const chatMensajes = divChatIndividual.querySelector('.mensaje-chat');
+  //const chatMensajes = divChatIndividual.querySelector('.mensaje-chat');
   const chatInput = divChatIndividual.querySelector('#chat-input');  
   const chatButton = divChatIndividual.querySelector('.boton-enviar-chat-individual');
 
-  chatButton.addEventListener('click', () =>{
+  chatButton.addEventListener('click', () => {
     const textoInput = chatInput.value.trim();
 
     if (chatInput !== ""){
@@ -54,30 +54,37 @@ export const renderChatIndividual= (props) => {
         .then(respuesta =>{
           const textBot = respuesta.choices[0].message.content;
           chatInput.value = " ";
-          prueba(textBot, "bot")
+          clonarTemplate(textBot, `${itemFlor.imageUrl}`)
         }).catch();
-
     }
-    prueba(textoInput, "user")
+    clonarTemplate(textoInput, "user")
   });
   
   const cloneTemplate = divChatIndividual.querySelector(".lista-de-mensajes")
-  function prueba(text, sender) {
-    //en cloneHTML, la ul se convierten en una copia del ul original --- cloneNode(true), para que clone al nodo con todos sus hijos.
-    const cloneHTML = cloneTemplate.cloneNode(true);
+  function clonarTemplate(text, sender) {
     //estás li ya no son las originales sino son las copias del cloneHTML
-    const nuevoMensaje = cloneHTML.querySelector("li");
+    const cloneHTML = cloneTemplate.cloneNode(true);
 
-    //Llamamos con querySelector a los hijos de la copia li
-    const mensajeBot= nuevoMensaje.querySelector("p");
-    const spanBot= nuevoMensaje.querySelector("span");
-    /* const mensajeUsuario= nuevoMensaje.querySelector("#mensaje-chat-usuario");
-    const spanUsuario= nuevoMensaje.querySelector("#span-chat-usuario");
-     */
-    spanBot.textContent = sender;
-    mensajeBot.textContent = text;
+    if(sender === `${itemFlor.imageUrl}`){
+      //Llamamos con querySelector de la copia li y los hijos de la copia li
+      const nuevoMensajeBot= cloneHTML.querySelector(".mensaje-bot");
+      const mensajeBot= nuevoMensajeBot.querySelector("#mensaje-chat-bot");
+      const spanBot= `${itemFlor.imageUrl}`;
 
-    cloneTemplate.appendChild(nuevoMensaje); 
+      spanBot.textContent = sender;
+      mensajeBot.textContent = text;
+
+      cloneTemplate.appendChild(nuevoMensajeBot);
+    } else {
+      const nuevoMensajeUsuario= cloneHTML.querySelector(".mensaje-usuario");
+      const mensajeUsuario= nuevoMensajeUsuario.querySelector("#mensaje-chat-usuario");
+      const spanUsuario= nuevoMensajeUsuario.querySelector("#span-chat-usuario");
+
+      spanUsuario.textContent = sender;
+      mensajeUsuario.textContent = text;
+
+      cloneTemplate.appendChild(nuevoMensajeUsuario);
+    }
   }
 
   contenedorChatIndividual.appendChild(divChatIndividual);

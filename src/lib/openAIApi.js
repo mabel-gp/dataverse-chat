@@ -25,7 +25,6 @@ export const communicateWithOpenAI = (messages) => {
   }) 
     .then(promesaOpenAI => {return promesaOpenAI.json()})
     .catch (error => {console.error ('Error de API:' ,error)})
-
-  // console.log(promesaOpenAI);
 };
 
+console.log(communicateWithOpenAI)
