@@ -44,7 +44,7 @@ export const renderCards = (data) => {
   sectionApiButton.className = "button-api";
 
   const iconoApi = document.createElement("img");
-  iconoApi.src = "assets/images/icono-api.svg";
+  iconoApi.src = '/assets/images/llave.png';
 
   sectionApiButton.appendChild(iconoApi);
   sectionApi.appendChild(sectionApiButton); 
