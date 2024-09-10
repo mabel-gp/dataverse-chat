@@ -16,13 +16,13 @@ export const renderChatIndividual= (props) => {
             <div class= "mensaje-chat">
               <ul class= "lista-de-mensajes">
                 <li class= "mensaje-bot">
-                  <span id= "span-chat-bot" ><img src="${itemFlor.imageUrl}"/></span>
-                  <p id= "mensaje-chat-bot" >Esta es la flor</p>
+                  <img id= "img-chat-bot"src="${itemFlor.imageUrl}"/>
+                  <p id= "mensaje-chat-bot" >¡Hola! mi nombre es ${itemFlor.name}, ¿puedo ayudarte en algo?</p>
                 </li>
 
                 <li class= "mensaje-usuario">
-                  <p id="mensaje-chat-usuario" >Esta es la respuesta</p>
-                  <span id= "span-chat-usuario">usuario: </span>
+                  <p id="mensaje-chat-usuario">...</p>
+                  <img id= "img-chat-usuario" src="assets/images/usuario.png"/>
                 </li>
               </ul>
             </div>
@@ -49,15 +49,30 @@ export const renderChatIndividual= (props) => {
   chatButton.addEventListener('click', () => {
     const textoInput = chatInput.value.trim();
 
+    // const historial = [];
+
+    // function añadirMensaje(role, message) {
+    //   historial.push ({ role: 'user', content: message });
+    // }
+    
+    // function obtenerHistorial() {
+    //   return historial;
+    // }
+
     if (chatInput !== ""){
       communicateWithOpenAI(textoInput)
         .then(respuesta =>{
           const textBot = respuesta.choices[0].message.content;
           chatInput.value = " ";
-          clonarTemplate(textBot, `${itemFlor.imageUrl}`)
-        }).catch();
+          clonarTemplate(textBot, "bot")
+          // historial.push({ role: 'bot', content: textBot });
+        })
+        .catch(error => {
+          ('Error de API:' ,error)
+        });
     }
     clonarTemplate(textoInput, "user")
+    // historial.push({ role: 'user', content: textoInput });
   });
   
   const cloneTemplate = divChatIndividual.querySelector(".lista-de-mensajes")
@@ -65,20 +80,21 @@ export const renderChatIndividual= (props) => {
     //estás li ya no son las originales sino son las copias del cloneHTML
     const cloneHTML = cloneTemplate.cloneNode(true);
 
-    if(sender === `${itemFlor.imageUrl}`){
+    if(sender === `bot`){
       //Llamamos con querySelector de la copia li y los hijos de la copia li
       const nuevoMensajeBot= cloneHTML.querySelector(".mensaje-bot");
       const mensajeBot= nuevoMensajeBot.querySelector("#mensaje-chat-bot");
-      const spanBot= `${itemFlor.imageUrl}`;
+      const spanBot= nuevoMensajeBot.querySelector("#img-chat-bot");
 
       spanBot.textContent = sender;
       mensajeBot.textContent = text;
 
       cloneTemplate.appendChild(nuevoMensajeBot);
+
     } else {
       const nuevoMensajeUsuario= cloneHTML.querySelector(".mensaje-usuario");
       const mensajeUsuario= nuevoMensajeUsuario.querySelector("#mensaje-chat-usuario");
-      const spanUsuario= nuevoMensajeUsuario.querySelector("#span-chat-usuario");
+      const spanUsuario= nuevoMensajeUsuario.querySelector("#img-chat-usuario");
 
       spanUsuario.textContent = sender;
       mensajeUsuario.textContent = text;

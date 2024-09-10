@@ -114,10 +114,14 @@ button:active {
 .button-api {
     width: 8rem;
     height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button-api img {
-    padding-top: 1rem;
+    padding-top: 0.9rem;
+    width: 5rem;
 }
 
 main {
@@ -313,11 +317,13 @@ footer {
 .mensaje-bot {
     align-self: flex-start;
     display: flex;
+    column-gap: 0.3rem;
  }
 
 .mensaje-usuario {
     align-self: flex-end;
     display: flex;
+    column-gap: 0.3rem;
  }
 
 .mensaje-bot p {
@@ -326,10 +332,7 @@ footer {
     border-radius: 1rem;
     padding: 0.6rem 1rem 1rem 1rem;
     outline: none;
-}
-
-.mensaje-bot span {
-    padding: 0.6rem 1rem 1rem 1rem;
+    text-align: justify;
 }
 
 .mensaje-usuario p {
@@ -340,31 +343,32 @@ footer {
     outline: none;
 } 
 
-.mensaje-usuario span {
-    padding: 0.6rem 1rem 1rem 1rem;
-}
-
-#span-chat-bot {
-    > img {
-        width: 100%;
-    }
-}
-
-#span-chat-bot {
-    width: 6rem;
+#img-chat-bot {
+    width: 4rem;
     height: 4rem;
     align-items: center;
     margin-bottom: 0.5rem;
- }
+}
 
  #mensaje-chat-bot {
     padding: 1rem 1rem 1rem 1rem;
  }
 
  #mensaje-chat-usuario {
-    padding: 0.9rem 1rem 1rem 1rem;
+    padding: 0.6rem 1rem 1rem 1rem;
  }
 
+.mensaje-chat{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+#img-chat-usuario {
+    width: 4rem;
+    height: 3.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
 
 @media (max-width: 915px) {
 

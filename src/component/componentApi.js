@@ -10,7 +10,7 @@ export const renderApi = () => {
         `
           <h1 class = "titulo-api" >Api Key Admin</h1>
           <p class = "mensaje-api" >Desde aquí puedes administrar la API Key a utilizar</p>
-          <input type = "password" placeholder = "Escribe/pega tu API KEY aquí" class = "input-api" ></input>
+          <input type = "text" placeholder = "Escribe/pega tu API KEY aquí" class = "input-api" ></input>
           <button class = "button-guardar-api" >Guardar</button>
         `
   //determinamos si la clave está guardada o no
@@ -20,7 +20,7 @@ export const renderApi = () => {
   document.addEventListener("DOMContentLoaded", () => {
     const estadoDeClave = getApiKey("apikey");
     if (estadoDeClave){
-      inputApi.textContent = `Clave guardada: ${estadoDeClave}`;
+      inputApi.value = `Clave guardada: ${estadoDeClave}`;
       botonObtenerGuardadApi.textContent = "Borrar clave";
     }
   });
@@ -28,23 +28,23 @@ export const renderApi = () => {
   //primero escuchar al botón
 
   botonObtenerGuardadApi.addEventListener("click", () => {
-    const botonObtenerApiKey = getApiKey("apikey") 
+    const botonObtenerApiKey = getApiKey("apikey");
 
     if(botonObtenerApiKey){
-      botonObtenerApiKey.removeItem = "apikey"
+      localStorage.removeItem = ("apikey");
 
-      inputApi.textContent = "Borrar apikey";
-      botonObtenerGuardadApi.textContent = "Guardar clave";
+      botonObtenerGuardadApi.textContent = "Borrar";
 
-      //establecer la función que obtenga el getApiKey
-    /*     } else {
-      const
-    }; */
+    //establecer la función que obtenga el getApiKey
+    } else {
+      const nuevaApiKey = inputApi.value;
+      setApiKey("apikey", nuevaApiKey);
+        
+      inputApi.value = "";
+      botonObtenerGuardadApi.textContent = "Guardar";
+    
     }
   });
-
-  
-  
 
   //devolver error si la clave es incorrecta
         
