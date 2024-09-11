@@ -8,7 +8,7 @@ import { renderFooter } from '../component/componentFooter.js';
 
 let currentData = data;
 
-export function home (props) {
+export function home () {
   const viewEl = document.createElement('div');
   viewEl.appendChild(renderHeader());
   viewEl.appendChild(renderFilters());

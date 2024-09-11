@@ -60,7 +60,7 @@ export const renderChatIndividual= (props) => {
     // }
 
     if (chatInput !== ""){
-      communicateWithOpenAI(textoInput)
+      communicateWithOpenAI(textoInput, itemFlor)
         .then(respuesta =>{
           const textBot = respuesta.choices[0].message.content;
           chatInput.value = " ";

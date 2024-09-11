@@ -1,4 +1,4 @@
-function pageError(props) {
+function pageError() {
   const viewEl = document.createElement('div');
   viewEl.textContent = 'Error 404. Page not found.';
   return viewEl;
