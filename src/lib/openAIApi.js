@@ -2,7 +2,6 @@
 import {getApiKey}  from '../lib/libApiKey.js';
 
 const recibeApiKey = getApiKey();
-
 export const communicateWithOpenAI = (messages, data) => {
   //Aquí es donde debes implementar la petición con fetch o axios
 
@@ -18,7 +17,7 @@ export const communicateWithOpenAI = (messages, data) => {
         [
           {
             "role": "system", 
-            "content": `Eres ${data.name}. Responderas los mensajes de acuerdo a ${data.description}. Estos mensajes deben tener un máximo de 30 palabras. Que la conversación sea fluida. Siempre ten en cuenta tu nombre y refleja tu personalidad al responder.`
+            "content": `Eres ${data.name}.Responderas los mensajes de acuerdo a ${data.description}. Estos mensajes deben tener un máximo de 30 palabras. Que la conversación sea fluida. Siempre ten en cuenta tu nombre y refleja tu personalidad al responder.`
           },   
           {
             "role": "user", 
