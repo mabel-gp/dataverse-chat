@@ -4,21 +4,26 @@ import { getApiKey, setApiKey } from '../src/lib/libApiKey.js';
 //tiene 1 parametro
 describe('getApiKey', () => {
   it('debería devolver el valor de la API Key', () => {
-    //const testObtenerApi = getApiKey;
-    
-    console.log(getApiKey)
-    //expect(testObtenerApi).toBe(getApiKey);
+    //declaramos constante con un string cualquiera
+    const clave = 'string cualquiera';
+    //simulamos que la API Key está en localStorage
+    localStorage.setItem('apikey', clave);
+    //obtenemos el valor usando la función
+    const obtenerApiKey = getApiKey();
+    //el resultado deberia ser el string
+    expect(obtenerApiKey).toBe(clave);
   });
   
 });
 
 //obtiene y la guardar la API KEY en Local Storage
-//tiene 2 parametros "apikey", key
 describe('setApiKey', () => {
   it('debería establecer correctamente la API Key', () => {
-    const obtengoPrueba = "hola123"
-    const guardarPrueba = setApiKey(obtengoPrueba)
-
-    expect(guardarPrueba).toBe(setApiKey(guardarPrueba));
+    // declarar constante y le pasas un string 
+    const key = "apikey";
+    //set apikey recibe solo un parámetro, el key será el valor que se establezca por el usuario
+    setApiKey(key);
+    //con localStorage guarda la apikey, y se espera que sea el valor de key
+    expect(localStorage.getItem("apikey")).toBe(key);
   });
 });
