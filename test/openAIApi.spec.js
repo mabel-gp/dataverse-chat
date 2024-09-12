@@ -11,7 +11,7 @@ global.fetch = jest.fn(() => Promise.resolve({
 
 describe('communicateWithOpenAI', () => {
   test('communicateWithOpenAI debería recibir una petición y dar una respuesta', () => {
-    const messages = "como te llamas?"
+    const messages = "¿Cómo te llamas?"
     const data = { name: "flor", description: 'hola, soy flor' };
 
     return communicateWithOpenAI(messages, data).then(respuesta => {
