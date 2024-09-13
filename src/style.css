@@ -7,6 +7,7 @@
 
 html{
     font-size: 62.5%;
+    background-color: #F6F2F8
 }
 
 header{
@@ -23,7 +24,7 @@ header img {
     width: 60%;
 }
 
-header div{
+header div {
     background-color: #D9D9D9;
     position: absolute;
     opacity: 0.8;
@@ -58,7 +59,7 @@ aside {
     color: #333333;
 }
 
-select{
+select {
     display: flex;
     border-radius: 2rem;
     border: none;
@@ -77,7 +78,7 @@ button {
     color: #333333;
 }
 
-button:focus{
+button:focus {
     transform: scale(0.95);
 }
 
@@ -85,7 +86,7 @@ button:active {
     transform: scale(0.9);
 }
 
-.contenedor-botones{
+.contenedor-botones {
     padding-top: 2rem;
     display:flex;
     justify-content: center;
@@ -106,13 +107,21 @@ button:active {
 .section-api {
     display: flex;
     justify-content: end;
-    width: 95%;
+    width: 92.5%;
     position: fixed;
 }
 
 .button-api {
-    width: 10rem;
-    height: 8rem;
+    width: 8rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-api img {
+    padding-top: 0.9rem;
+    width: 5rem;
 }
 
 main {
@@ -125,7 +134,7 @@ main {
 }
 
 .prueba {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: #e9dfed;
@@ -155,10 +164,15 @@ ul{
    
 }
 
+dd {
+    font-size: 90%;
+}
+
 dd[itemprop="name"] {
     text-align: center;
     font-weight: 700;
     padding-bottom: 1.5rem;
+    font-size: 90%
 }
 
 .caracteristicas img {
@@ -183,6 +197,221 @@ footer {
 .fa-user-lock {
     color: #787878;
 }
+
+/* Estos son los estilos de pageApi */
+
+.section-page-api {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    gap: 2rem;
+    background-color: #F6F2F8;
+}
+
+.titulo-api {
+    color: #786E3E;
+    font-size: 4rem;
+    font-family: "Alegreya Sans", sans-serif;
+}
+
+.mensaje-api{
+    color: #333333;
+    font-size: 200%;
+    align-items: center;
+    font-family: "Aref Ruqaa Ink", serif;
+    padding: 0rem 4rem 0 4rem;
+    text-align: center;
+}
+
+.input-api{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1rem;
+    outline: none;
+    border-color: #c9c9c9;
+}
+
+.buttton-guardar-api{
+    margin-top: 2rem;
+}
+
+/* estos son los estilos para la vista de chat individual*/
+
+.contenedor-vista-chat-individual {   
+    display: flex;
+    column-gap: 2rem;
+    /* height: 100vh; */
+}
+
+.chat-individual {
+    width: 50%;
+    /* height: 100vh;   */
+}
+
+.mensaje-de-usuario {
+  padding: 1rem 3rem 1rem 3rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.mensaje-de-usuario input {
+    border-radius: 1rem;
+    padding: 1rem;
+    outline: none;
+    border-color: #c9c9c9;
+    width: 90%;
+    
+} 
+
+.mensaje-de-usuario button {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.mensaje-de-usuario img {
+    max-height: 200%;
+    max-width: 200%;
+    padding-top: 0.8rem;
+} 
+
+.tarjeta-chat-individual {
+    width: 50%;
+    background-color: #DBCCE3;
+    padding: 3rem 6rem 3rem 6rem;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.tarjeta-chat-individual h1 {
+    font-size: 3rem;
+    padding-top: 4rem;
+    color: #786E3E;
+    
+}
+
+.tarjeta-chat-individual img {
+    width: 30%;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    
+}
+
+.tarjeta-chat-individual p {
+    font-size: 1.4rem;
+    text-align: justify;
+    color: #333333;
+} 
+
+/*Estos son los estilos del chat individual*/
+.mensaje-chat {  
+    height: 85dvh; 
+    padding: 3rem 2rem 2rem 2rem;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+ .lista-de-mensajes {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    font-size: 1.4rem;
+    list-style: none;
+    font-family: "Aref Ruqaa Ink", serif;
+    color: #333333;
+}
+
+.mensaje-bot {
+    align-self: flex-start;
+    display: flex;
+    column-gap: 0.3rem;
+}
+
+.mensaje-usuario {
+    align-self: flex-end;
+    display: flex;
+    column-gap: 0.3rem;
+    
+}
+
+.mensaje-bot p {
+    background-color: #D4E3CC;
+    box-shadow: 0 0 0.5rem 0.1rem rgb(190, 190, 190);
+    border-radius: 1rem;
+    padding: 0.6rem 1rem 1rem 1rem;
+    outline: none;
+    text-align: justify;
+}
+
+.mensaje-usuario p {
+    background-color: #F1E4E5;
+    box-shadow: 0 0 0.5rem 0.1rem rgb(190, 190, 190);
+    border-radius: 1rem;
+    padding: 0.6rem 1rem 1rem 1rem;
+    outline: none;
+} 
+
+#img-chat-bot {
+    width: 4rem;
+    height: 4rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+#mensaje-chat-bot {
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+#mensaje-chat-usuario {
+    padding: 0.6rem 1rem 1rem 1rem;
+}
+
+#img-chat-usuario {
+    width: 4rem;
+    height: 3.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+/*Estilos del boton inicio*/
+
+.botones-vista-api {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+/*Estos son los estilos de la vista error*/
+
+.contenedor-error {
+    color: #786E3E;
+    font-family: "Aref Ruqaa Ink", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+.titulo-error {
+    font-size: 5rem;
+}
+
+.text-error {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.img-error {
+    width: 20rem;
+}
+
+
 
 
 @media (max-width: 915px) {
@@ -293,8 +522,8 @@ footer {
     }
     
     .button-api {
-        width: 8rem;
-        height: 7rem;
+        width: 7rem;
+        height: 6rem;
     }
 
     footer {
@@ -309,6 +538,36 @@ footer {
         color: #333333;
     }
 
+ /*estos son los estilos de la vista del chat individual*/
+    
+    .contenedor-vista-chat-individual {   
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 2rem;
+        height: 100vh;
+    }
+
+    .tarjeta-chat-individual {
+        width: 100%;
+        background-color: #DBCCE3;
+        padding: 3rem 8rem 3rem 8rem;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+
+    .chat-individual {
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .mensaje-de-usuario button {
+        width: 5.5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media (min-width: 300px) and (max-width: 600px) {
@@ -400,8 +659,12 @@ footer {
     }
     
     .button-api {
-        width: 8rem;
-        height: 7rem;
+        width: 7rem;
+        height: 6rem;
+    }
+
+    .button-api img {
+        width: 80%;
     }
 
     footer {
@@ -415,8 +678,22 @@ footer {
         font-family: "Aref Ruqaa Ink", serif;
         color: #333333;
     }
+}
 
+@media (min-width: 915px) and (max-width: 1090px) {
 
+    .mensaje-de-usuario button {
+        width: 15%;
+        height: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
+    .mensaje-de-usuario img {
+        max-height: 50%;
+        max-width: 200%;
+        padding-top: 0.8rem;
+    }
 
 }

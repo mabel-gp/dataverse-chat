@@ -3,14 +3,16 @@
 import { home } from './views/Home.js';
 import pageError from './views/Error.js';
 import pageApiKey from './views/Apikey.js';
+import pageChatIndividual from './views/ChatIndividual.js'
 // En este archivo definirás tus rutas e importarás los componentes que vas a renderizar.
-import { setRootEl, setRoutes, onURLChange } from './router.js';
+import { setRootEl, setRoutes, onURLChange} from './router.js';
 
 // Define your routes and their associated views
 const routes = {
   '/': home,
   '/error': pageError,
   '/apiKey': pageApiKey,
+  '/chatindividual': pageChatIndividual,
 };
 
 // Assign the routes
@@ -24,7 +26,12 @@ window.addEventListener("DOMContentLoaded", () => {
   onURLChange(window.location)
 });
 
-  
+// Handle URL changes
+window.addEventListener('popstate', (event) => {
+  onURLChange(location, event.state);
+  console.log(event);
+});  
+
 
 /*
 import Example from './views/Example.js';
