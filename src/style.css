@@ -164,10 +164,15 @@ ul{
    
 }
 
+dd {
+    font-size: 90%;
+}
+
 dd[itemprop="name"] {
     text-align: center;
     font-weight: 700;
     padding-bottom: 1.5rem;
+    font-size: 90%
 }
 
 .caracteristicas img {
@@ -208,12 +213,16 @@ footer {
 .titulo-api {
     color: #786E3E;
     font-size: 4rem;
+    font-family: "Alegreya Sans", sans-serif;
 }
 
 .mensaje-api{
     color: #333333;
     font-size: 200%;
     align-items: center;
+    font-family: "Aref Ruqaa Ink", serif;
+    padding: 0rem 4rem 0 4rem;
+    text-align: center;
 }
 
 .input-api{
@@ -233,12 +242,12 @@ footer {
 .contenedor-vista-chat-individual {   
     display: flex;
     column-gap: 2rem;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .chat-individual {
     width: 50%;
-    height: 100vh;  
+    /* height: 100vh;   */
 }
 
 .mensaje-de-usuario {
@@ -253,13 +262,14 @@ footer {
     outline: none;
     border-color: #c9c9c9;
     width: 90%;
+    
 } 
 
 .mensaje-de-usuario button {
     width: 10%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;  
 }
 
 .mensaje-de-usuario img {
@@ -271,7 +281,7 @@ footer {
 .tarjeta-chat-individual {
     width: 50%;
     background-color: #DBCCE3;
-    padding: 3rem 8rem 3rem 8rem;
+    padding: 3rem 6rem 3rem 6rem;
     line-height: 1.5;
     display: flex;
     flex-direction: column;
@@ -280,7 +290,7 @@ footer {
 
 .tarjeta-chat-individual h1 {
     font-size: 3rem;
-    padding-top: 5rem;
+    padding-top: 4rem;
     color: #786E3E;
     
 }
@@ -301,8 +311,10 @@ footer {
 /*Estos son los estilos del chat individual*/
 .mensaje-chat {  
     height: 85dvh; 
-    margin: 3rem 2rem 0 2rem;
- }
+    padding: 3rem 2rem 2rem 2rem;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
 
  .lista-de-mensajes {
     display: flex;
@@ -312,19 +324,20 @@ footer {
     list-style: none;
     font-family: "Aref Ruqaa Ink", serif;
     color: #333333;
- }
+}
 
 .mensaje-bot {
     align-self: flex-start;
     display: flex;
     column-gap: 0.3rem;
- }
+}
 
 .mensaje-usuario {
     align-self: flex-end;
     display: flex;
     column-gap: 0.3rem;
- }
+    
+}
 
 .mensaje-bot p {
     background-color: #D4E3CC;
@@ -350,17 +363,12 @@ footer {
     margin-bottom: 0.5rem;
 }
 
- #mensaje-chat-bot {
+#mensaje-chat-bot {
     padding: 1rem 1rem 1rem 1rem;
- }
+}
 
- #mensaje-chat-usuario {
+#mensaje-chat-usuario {
     padding: 0.6rem 1rem 1rem 1rem;
- }
-
-.mensaje-chat{
-    overflow-y: scroll;
-    scroll-behavior: smooth;
 }
 
 #img-chat-usuario {
@@ -369,6 +377,42 @@ footer {
     align-items: center;
     margin-bottom: 0.5rem;
 }
+
+/*Estilos del boton inicio*/
+
+.botones-vista-api {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+/*Estos son los estilos de la vista error*/
+
+.contenedor-error {
+    color: #786E3E;
+    font-family: "Aref Ruqaa Ink", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+.titulo-error {
+    font-size: 5rem;
+}
+
+.text-error {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.img-error {
+    width: 20rem;
+}
+
+
+
 
 @media (max-width: 915px) {
 

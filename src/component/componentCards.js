@@ -29,9 +29,13 @@ export const renderCards = (data) => {
         `
     const botonChatear = li.querySelector('.button-chatear')
     botonChatear.addEventListener('click', () => {
-      navigateTo('/chatindividual', {id:dato.id})
+      const llave = localStorage.getItem("apikey")
+      if(llave){
+        navigateTo('/chatindividual', {id:dato.id})
+      }else{
+        navigateTo('/apiKey')
+      }
     });
-    
 
     listaDeFlores.appendChild(li);
   });

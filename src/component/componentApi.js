@@ -1,6 +1,7 @@
 import { getApiKey } from "../lib/libApiKey.js";
 import { setApiKey } from "../lib/libApiKey.js";
 import { deleteApiKey } from "../lib/libApiKey.js";
+import {navigateTo} from "../router.js";
 
 export const renderApi = () => {
  
@@ -12,11 +13,15 @@ export const renderApi = () => {
           <h1 class = "titulo-api" >Api Key Admin</h1>
           <p class = "mensaje-api" >Desde aquí puedes administrar la API Key a utilizar</p>
           <input type = "password" placeholder = "Escribe/pega tu API KEY aquí" class = "input-api" ></input>
-          <button class = "button-guardar-api" >Guardar</button>
+          <div class = "botones-vista-api">
+            <button class = "button-inicio">Inicio</button>  
+            <button class = "button-guardar-api">Guardar</button>
+          </div>
         `
   //Variables 
   const inputApi = contenedorApi.querySelector(".input-api");
   const botonObtenerApi = contenedorApi.querySelector(".button-guardar-api");
+  const botonInicio = contenedorApi.querySelector(".button-inicio");
   //Guardar ApiKey
 
   const recuperarApi = () => {
@@ -28,20 +33,14 @@ export const renderApi = () => {
   }
   recuperarApi();
 
-
+  //Boton para guardar y borrar el ApiKey
   botonObtenerApi.addEventListener('click', () => {
-    // setApiKey(inputApi.value);
     const apiKey = inputApi.value;
-    
-    // const eliminarApiKey = deleteApiKey();
-    // console.log(eliminarApiKey);
 
     if(botonObtenerApi.textContent === 'Guardar'){
-      // const paraObtener = getApiKey(apiKey);
       if(apiKey){
         setApiKey(apiKey);
         botonObtenerApi.textContent = 'Borrar Clave';
-        // getApiKey(apiKey);
       }else{
         alert('Por favor, digita la clave correcta.');
       }
@@ -52,65 +51,12 @@ export const renderApi = () => {
     }else{
       alert('Por favor, digita la clave correcta.');
     }
+  });
 
+  //boton para volver al inicio
+  botonInicio.addEventListener('click', () => {
+    navigateTo('/')
+  });
 
-
-
-    // if(recuperarApiKey){
-    //   //guardar ApiKey
-    //   recuperarApiKey;
-    //   //cambia estado de botón a borrar
-    //   inputApi.value = `${recuperarApiKey}`;
-    // }else if(eliminarApiKey){
-    //   botonObtenerGuardarApi.textContent = "Borrar Clave";
-    //   botonObtenerGuardarApi.addEventListener = deleteApiKey();
-    // }else{
-    //   alert('Por favor, digita la clave correcta.');
-    // }
-    
-
-    //Para ocultar la clave
-    // Muestra los primeros "visibleCount" caracteres y oculta el resto con asteriscos 
-    // function maskKey(inputApi, visibleCount = 4) { 
-
-    //   const visiblePart = inputApi.slice(0, visibleCount); // Parte visible de la clave 
-    //   const hiddenPart = "*".repeat(inputApi.length - visibleCount); // Parte oculta con asteriscos 
-    //   return visiblePart + hiddenPart; // Combina ambas partes 
-    // }
-    // return maskKey;
-  })
-  
-  
-
-  // document.addEventListener("DOMContentLoaded", () => {
-  //   const estadoDeClave = getApiKey("apikey");
-  //   if (estadoDeClave){
-  //     inputApi.value = `Clave guardada: ${estadoDeClave}`;
-  //     botonObtenerGuardadApi.textContent = "Borrar clave";
-  //   }
-  // });
-
-  //primero escuchar al botón
-
-  // botonObtenerGuardadApi.addEventListener("click", () => {
-  //   const botonObtenerApiKey = getApiKey("apikey");
-
-  //   if(botonObtenerApiKey){
-  //     localStorage.removeItem = ("apikey");
-
-  //     botonObtenerGuardadApi.textContent = "Borrar";
-
-  //   //establecer la función que obtenga el getApiKey
-  //   } else {
-  //     const nuevaApiKey = inputApi.value;
-  //     setApiKey("apikey", nuevaApiKey);
-        
-  //     inputApi.value = "";
-  //     botonObtenerGuardadApi.textContent = "Guardar";
-    
-  //   }
-  // });
-
-  return contenedorApi;
-        
+  return contenedorApi;       
 };
