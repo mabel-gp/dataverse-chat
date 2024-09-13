@@ -14,19 +14,19 @@ Hoy en día, las aplicaciones web son nuestras compañeras constantes. Desde man
 
 Por eso, hemos creado una página dinámica llamada Flores Dataverse-chat, que nos permite interactuar con la inteligencia artificial, especificamente la de OpenAI. Esta plataforma nos permite interactuar con las flores, mediante un chat y podemos preguntarles por sus características, habitat, origen, descripción, entre otros detalles
 
-![imagen-chat](src\assets\images\imagen-chat.png)
+![imagen-chat](src/assets/images/imagen-chat.png)
 
 ## 2. Funcionalidades
 
 En este proyecto hemos convertido nuestro Dateverse en SPA (single page aplication), implementado un router que nos permite navegar por las diferentes rutas de la página. También se a implementado el chat que tiene conexión con la API de OpenAI y nos da la posibilidad de interactuar con la inteligencia artificial y consultar información detallada de cada flor. Además de eso, hemos manteniendo las funcionalidades de visualizar, filtrar, ordenar y calcular estadísticas.
 
-![imagen-chat-openAI](src\assets\images\imagen-chat-openai.png)
+![imagen-chat-openAI](src/assets/images/imagen-chat-openai.png)
 
-![implementacion-rutas](src\assets\images\implementación-rutas.png)
+![implementacion-rutas](src/assets/images/implementación-rutas.png)
 
 Nuestro proyecto cuenta también con una vista que permite integrar una API KEY de OpenAI que permite la interacción con nuestras flores.
 
-![vista-api](src\assets\images\vista-api.png)
+![vista-api](src/assets/images/vista-api.png)
 
 ## 3. Hitos
 
@@ -43,7 +43,7 @@ Nuestro proyecto cuenta también con una vista que permite integrar una API KEY 
 3. Migramos también las pruebas unitarias de las funciones de Dataverse.
 4. Visualizamos el set de datos en home.js.
 
-![vista-home](src\assets\images\vista-home.png)
+![vista-home](src/assets/images/vista-home.png)
 
 ### Hito 3
 
@@ -53,4 +53,4 @@ Nuestro proyecto cuenta también con una vista que permite integrar una API KEY 
 4. Integramos a OpenAI utilizando promesas, fetch, then y catch.
 5. Escribimos los test para las funciones asíncronas.
 
-![gif-interfaz](src\assets\images\video-dataverse-chat.gif)
+![gif-interfaz](src/assets/images/video-dataverse-chat.gif)
